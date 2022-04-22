@@ -17,8 +17,10 @@ Requirements:
 
 Download procedure:
 
+	git clone https://github.com/Rajas2323/iphunter
 
-git clone https://github.com/Rajas2323/iphunter
+Usage:
+	Just execute the command: python iphunter.py
 
 
 
