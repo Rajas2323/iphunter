@@ -12,7 +12,14 @@ to host it on ngrok, you need to use command
 Requirements:
 	
 	[1] A stable internet connection
-	[2] Python3
+	[2] Python
+
+
+Download procedure:
+
+
+git clone https://github.com/Rajas2323/iphunter
+
 
 
 Thanks for using IP hunter
