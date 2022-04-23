@@ -1,3 +1,7 @@
+
+
+# IP Hunter
+
 Welcome to ip hunter
 
 The location tracker tool is an example of social engineering attack.
@@ -6,13 +10,13 @@ To host the server over web, you will need to use tunnels like ngrok or cloudfla
 
 to host it on ngrok, you need to use command
 
-./ngrok 127.0.0.1:5000
+ngrok http 127.0.0.1:5000
 
 
 Requirements:
 	
-	[1] A stable internet connection
-	[2] Python
+ - A stable internet connection
+ - Python
 
 
 Download procedure:
@@ -20,10 +24,11 @@ Download procedure:
 	git clone https://github.com/Rajas2323/iphunter
 
 Usage:
-	Just execute the command: python iphunter.py
+Just execute the command: python iphunter.py
 
 
 
 Thanks for using IP hunter
 
 Enjoy :)
+
