@@ -1,10 +1,10 @@
 import shutil
 
 def TransferImage(path):
-    shutil.copy(path, "static")
+    shutil.copy(path, "static/locationimages")
 
     arr = path.split("\\")
 
-    return "static/" + arr[-1]
+    return "static/locationimages/" + arr[-1]
 
 

